@@ -1,0 +1,82 @@
+:root {
+  /* Light mode (default) */
+  --bg-page: #f5f3f0;
+  --bg-screen: #faf9f7;
+  --bg-card: #fff;
+  --bg-card-secondary: #f7f5f2;
+  --bg-input: #f7f5f2;
+
+  --border-primary: #e8e5e0;
+  --border-secondary: #eee;
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #888;
+  --text-muted: #999;
+
+  --accent-success: #16a34a;
+  --accent-success-bg: #f0fdf4;
+  --accent-success-border: #bbf7d0;
+
+  --accent-primary: #3b82f6;
+  --accent-violet: #8b5cf6;
+
+  --accent-warning: #f59e0b;
+  --accent-warning-bg: #fffbeb;
+  --accent-warning-border: #fde68a;
+
+  --accent-error: #ef4444;
+  --accent-error-bg: #fef2f2;
+  --accent-error-border: #fecaca;
+
+  --button-primary-bg: #1a1a1a;
+  --button-primary-text: #fff;
+  --button-secondary-bg: #f0ede8;
+  --button-secondary-text: #1a1a1a;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+[data-theme="dark"] {
+  --bg-page: #0a0a0a;
+  --bg-screen: #0a0a0a;
+  --bg-card: #141414;
+  --bg-card-secondary: #1a1a1a;
+  --bg-input: #1a1a1a;
+
+  --border-primary: #262626;
+  --border-secondary: #1f1f1f;
+
+  --text-primary: #fff;
+  --text-secondary: #888;
+  --text-muted: #666;
+
+  --accent-success: #22c55e;
+  --accent-success-bg: rgba(34, 197, 94, 0.1);
+  --accent-success-border: rgba(34, 197, 94, 0.2);
+
+  --accent-warning: #fbbf24;
+  --accent-warning-bg: rgba(251, 191, 36, 0.1);
+  --accent-warning-border: rgba(251, 191, 36, 0.2);
+
+  --accent-error: #f87171;
+  --accent-error-bg: rgba(248, 113, 113, 0.1);
+  --accent-error-border: rgba(248, 113, 113, 0.2);
+
+  --button-primary-bg: #fff;
+  --button-primary-text: #000;
+  --button-secondary-bg: #262626;
+  --button-secondary-text: #fff;
+
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.2), 0 8px 16px rgba(0,0,0,0.15);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+}

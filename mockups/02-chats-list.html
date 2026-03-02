@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chats — MDK</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="screen">
+
+    <div class="header">
+      <div class="header-title">Chats</div>
+      <div class="header-right">
+        <button class="icon-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-bar" placeholder="Search..." />
+    </div>
+
+    <div class="section-label">Agents</div>
+
+    <a class="chat-item" href="03-agent-chat.html">
+      <div class="chat-item-avatar">
+        <div class="avatar avatar-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="status-dot status-online"></div>
+      </div>
+      <div class="chat-item-content">
+        <div class="chat-item-top">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="chat-item-name">PayBot</span>
+            <span class="agent-tag">Agent</span>
+          </div>
+          <span class="chat-item-time">2m</span>
+        </div>
+        <div class="chat-item-bottom">
+          <span class="chat-item-preview">Invoice paid: 12,500 sats</span>
+          <span class="unread-badge">2</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="chat-item" href="#">
+      <div class="chat-item-avatar">
+        <div class="avatar avatar-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="status-dot status-online"></div>
+      </div>
+      <div class="chat-item-content">
+        <div class="chat-item-top">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="chat-item-name">DCA Agent</span>
+            <span class="agent-tag">Agent</span>
+          </div>
+          <span class="chat-item-time">1h</span>
+        </div>
+        <div class="chat-item-bottom">
+          <span class="chat-item-preview">Weekly buy complete: 50,000 sats</span>
+        </div>
+      </div>
+    </a>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Messages</div>
+
+    <a class="chat-item" href="#">
+      <div class="chat-item-avatar">
+        <div class="avatar avatar-blue">A</div>
+        <div class="status-dot status-online"></div>
+      </div>
+      <div class="chat-item-content">
+        <div class="chat-item-top">
+          <span class="chat-item-name">Alice</span>
+          <span class="chat-item-time">15m</span>
+        </div>
+        <div class="chat-item-bottom">
+          <span class="chat-item-preview">Got it, sending the invoice now</span>
+          <span class="unread-badge">1</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="chat-item" href="#">
+      <div class="chat-item-avatar">
+        <div class="avatar avatar-rose">B</div>
+        <div class="status-dot status-offline"></div>
+      </div>
+      <div class="chat-item-content">
+        <div class="chat-item-top">
+          <span class="chat-item-name">Bob</span>
+          <span class="chat-item-time">3h</span>
+        </div>
+        <div class="chat-item-bottom">
+          <span class="chat-item-preview">Thanks for the payment!</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="chat-item" href="#">
+      <div class="chat-item-avatar">
+        <div class="avatar avatar-cyan">C</div>
+        <div class="status-dot status-offline"></div>
+      </div>
+      <div class="chat-item-content">
+        <div class="chat-item-top">
+          <span class="chat-item-name">Carol</span>
+          <span class="chat-item-time">1d</span>
+        </div>
+        <div class="chat-item-bottom">
+          <span class="chat-item-preview">Let me check the relay config</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="chat-item" href="#">
+      <div class="chat-item-avatar">
+        <div class="avatar avatar-amber">D</div>
+        <div class="status-dot status-offline"></div>
+      </div>
+      <div class="chat-item-content">
+        <div class="chat-item-top">
+          <span class="chat-item-name">Dave</span>
+          <span class="chat-item-time">3d</span>
+        </div>
+        <div class="chat-item-bottom">
+          <span class="chat-item-preview">Sounds good, talk soon</span>
+        </div>
+      </div>
+    </a>
+
+    <nav class="bottom-nav">
+      <a class="nav-item" href="01-ai-chat.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg>
+        <span class="nav-label">AI</span>
+      </a>
+      <a class="nav-item active" href="02-chats-list.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="nav-label">Chats</span>
+      </a>
+      <a class="nav-item" href="04-agents.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span class="nav-label">Agents</span>
+      </a>
+      <a class="nav-item" href="05-wallet.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><circle cx="17" cy="15" r="1"/></svg>
+        <span class="nav-label">Wallet</span>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>

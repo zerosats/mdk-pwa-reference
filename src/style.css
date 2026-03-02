@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#app {
+  height: 100%;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Prevent iOS zoom on input focus */
+@media screen and (max-width: 640px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-card-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] ::selection {
+  background: rgba(59, 130, 246, 0.4);
+}
+
+/* Route transition: slide forward (drill in) */
+.slide-forward-enter-active,
+.slide-forward-leave-active {
+  transition: transform 250ms ease-out, opacity 250ms ease-out;
+}
+
+.slide-forward-enter-active,
+.slide-forward-leave-active,
+.slide-back-enter-active,
+.slide-back-leave-active,
+.crossfade-enter-active,
+.crossfade-leave-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.slide-forward-leave-active,
+.slide-back-leave-active,
+.crossfade-leave-active {
+  pointer-events: none;
+}
+
+.slide-forward-enter-from {
+  transform: translateX(100%);
+}
+
+.slide-forward-enter-to {
+  transform: translateX(0);
+}
+
+.slide-forward-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-forward-leave-to {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+
+/* Route transition: slide back (pop) */
+.slide-back-enter-active,
+.slide-back-leave-active {
+  transition: transform 250ms ease-out, opacity 250ms ease-out;
+}
+
+.slide-back-enter-from {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+
+.slide-back-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-back-leave-from {
+  transform: translateX(0);
+}
+
+.slide-back-leave-to {
+  transform: translateX(100%);
+}
+
+/* Route transition: crossfade (lateral peers) */
+.crossfade-enter-active,
+.crossfade-leave-active {
+  transition: opacity 200ms ease;
+}
+
+.crossfade-enter-from {
+  opacity: 0;
+}
+
+.crossfade-enter-to {
+  opacity: 1;
+}
+
+.crossfade-leave-from {
+  opacity: 1;
+}
+
+.crossfade-leave-to {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

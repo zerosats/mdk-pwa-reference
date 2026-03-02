@@ -1,0 +1,32 @@
+/* tslint:disable */
+/* eslint-disable */
+export const memory: WebAssembly.Memory;
+export const accept_welcome: (a: number, b: number) => [number, number];
+export const add_members: (a: number, b: number, c: number, d: number) => [number, number, number];
+export const create_group: (a: number, b: number, c: number, d: number, e: number, f: number) => [number, number, number];
+export const create_key_package: (a: number, b: number, c: number, d: number) => [number, number, number];
+export const create_message: (a: number, b: number, c: number, d: number, e: number, f: number) => [number, number, number];
+export const export_mdk_state: () => [number, number, number, number];
+export const get_groups: () => [number, number, number];
+export const get_members: (a: number, b: number) => [number, number, number];
+export const import_mdk_state: (a: number, b: number) => [number, number];
+export const init: () => void;
+export const leave_group: (a: number, b: number) => [number, number, number];
+export const mdk_init: () => [number, number];
+export const mdk_init_with_config: (a: bigint, b: number) => [number, number];
+export const merge_pending_commit: (a: number, b: number) => [number, number];
+export const process_message: (a: number, b: number) => [number, number, number];
+export const process_welcome: (a: number, b: number, c: number, d: number) => [number, number, number];
+export const remove_members: (a: number, b: number, c: number, d: number) => [number, number, number];
+export const rustsecp256k1_v0_10_0_context_create: (a: number) => number;
+export const rustsecp256k1_v0_10_0_context_destroy: (a: number) => void;
+export const rustsecp256k1_v0_10_0_default_error_callback_fn: (a: number, b: number) => void;
+export const rustsecp256k1_v0_10_0_default_illegal_callback_fn: (a: number, b: number) => void;
+export const __wbindgen_malloc: (a: number, b: number) => number;
+export const __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+export const __wbindgen_exn_store: (a: number) => void;
+export const __externref_table_alloc: () => number;
+export const __wbindgen_externrefs: WebAssembly.Table;
+export const __wbindgen_free: (a: number, b: number, c: number) => void;
+export const __externref_table_dealloc: (a: number) => void;
+export const __wbindgen_start: () => void;

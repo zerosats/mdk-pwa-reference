@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDK Chat — UI Mockups</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { max-width: 720px; padding: 48px 24px; }
+    h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 6px; }
+    .subtitle { color: var(--text-secondary); font-size: 15px; margin-bottom: 48px; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .link {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .link:hover { background: var(--bg-card-secondary); }
+    .link-title { font-size: 15px; font-weight: 700; }
+    .link-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .tag {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: fit-content;
+    }
+    .tag-new { background: var(--success-bg); color: var(--success); }
+    .tag-redesign { background: rgba(59, 130, 246, 0.1); color: var(--accent-primary); }
+    .nav-map {
+      margin-top: 48px;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      font-size: 13px;
+      line-height: 2;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <h1>MDK Chat — Redesign</h1>
+  <p class="subtitle">Privacy-preserving AI + Agent management + Bitcoin payments.</p>
+
+  <div class="grid">
+    <a class="link" href="01-ai-chat.html">
+      <div class="link-title">AI Chat</div>
+      <div class="link-desc">Private AI conversation with suggested prompts.</div>
+      <span class="tag tag-new">New</span>
+    </a>
+    <a class="link" href="02-chats-list.html">
+      <div class="link-title">Chats List</div>
+      <div class="link-desc">Agent chats and human chats, visually distinct.</div>
+      <span class="tag tag-redesign">Redesign</span>
+    </a>
+    <a class="link" href="03-agent-chat.html">
+      <div class="link-title">Agent Chat</div>
+      <div class="link-desc">Tasks, approvals, spending inside the conversation.</div>
+      <span class="tag tag-new">New</span>
+    </a>
+    <a class="link" href="04-agents.html">
+      <div class="link-title">Agents</div>
+      <div class="link-desc">Manage agents, wallets, limits.</div>
+      <span class="tag tag-redesign">Redesign</span>
+    </a>
+    <a class="link" href="05-wallet.html">
+      <div class="link-title">Wallet</div>
+      <div class="link-desc">Your funds and agent funding.</div>
+      <span class="tag tag-redesign">Redesign</span>
+    </a>
+  </div>
+
+  <div class="nav-map">
+    <span style="color: var(--text-primary);">Bottom Nav</span><br>
+    &nbsp;&nbsp;AI &rarr; Private AI chat<br>
+    &nbsp;&nbsp;Chats &rarr; Human + agent conversations<br>
+    &nbsp;&nbsp;Agents &rarr; Agent management<br>
+    &nbsp;&nbsp;Wallet &rarr; Your funds + agent funding
+  </div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Wallet — MDK</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .wallet-actions { display: flex; gap: 8px; padding: 0 20px; }
+    .wallet-action {
+      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 16px 12px; background: var(--bg-card); border-radius: var(--radius-lg);
+      color: var(--text-primary); font-size: 13px; font-weight: 600; cursor: pointer;
+      border: none; font-family: var(--font-sans); transition: background 0.15s;
+    }
+    .wallet-action:active { background: var(--bg-card-secondary); }
+    .wallet-action-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg-card-secondary); color: var(--text-secondary);
+    }
+    .fund-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
+    .fund-row + .fund-row { border-top: 1px solid var(--border-secondary); }
+    .tx-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; }
+    .tx-item + .tx-item { border-top: 1px solid var(--border-secondary); }
+    .tx-icon {
+      width: 36px; height: 36px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; background: var(--bg-card-secondary); color: var(--text-secondary);
+    }
+    .tx-info { flex: 1; min-width: 0; }
+    .tx-label { font-size: 14px; font-weight: 500; }
+    .tx-meta { font-size: 12px; color: var(--text-muted); }
+    .tx-amount { font-size: 14px; font-weight: 700; font-family: var(--font-mono); text-align: right; }
+    .tx-out { color: var(--text-primary); }
+    .tx-in { color: var(--success); }
+  </style>
+</head>
+<body>
+  <div class="screen">
+
+    <div class="header">
+      <div class="header-title">Wallet</div>
+      <div class="header-right">
+        <button class="icon-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="balance-display">
+      <div class="balance-label">Total Balance</div>
+      <div class="balance-amount">247,500 <span class="balance-unit">sats</span></div>
+      <div class="balance-usd">~ $245.82</div>
+    </div>
+
+    <div class="wallet-actions">
+      <button class="wallet-action">
+        <div class="wallet-action-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </div>
+        Deposit
+      </button>
+      <button class="wallet-action">
+        <div class="wallet-action-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </div>
+        Withdraw
+      </button>
+      <button class="wallet-action">
+        <div class="wallet-action-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        Fund Agent
+      </button>
+    </div>
+
+    <div style="padding: 0 20px; display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+
+      <div class="section-label" style="padding: 8px 0 0;">Breakdown</div>
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 14px; font-weight: 500;">Your Wallet</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Arkade Wallet</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 16px; font-weight: 700;" class="mono">206,712</div>
+            <div style="font-size: 11px; color: var(--text-muted);">sats</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label" style="padding: 8px 0 0;">Agent Wallets</div>
+      <div class="card" style="padding: 0;">
+        <div class="fund-row">
+          <div class="avatar avatar-sm avatar-green">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div style="flex: 1;">
+            <div style="font-size: 14px; font-weight: 600;">PayBot</div>
+            <div style="font-size: 12px; color: var(--text-muted);">1 active task</div>
+          </div>
+          <div style="text-align: right; margin-right: 10px;">
+            <div style="font-size: 15px; font-weight: 700;" class="mono">24,500</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" style="padding: 6px 14px;">Fund</button>
+        </div>
+        <div class="fund-row">
+          <div class="avatar avatar-sm avatar-green">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div style="flex: 1;">
+            <div style="font-size: 14px; font-weight: 600;">DCA Agent</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Next buy: Mon</div>
+          </div>
+          <div style="text-align: right; margin-right: 10px;">
+            <div style="font-size: 15px; font-weight: 700;" class="mono">16,288</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" style="padding: 6px 14px;">Fund</button>
+        </div>
+      </div>
+
+      <div class="section-label" style="padding: 8px 0 0;">Activity</div>
+      <div class="card" style="padding: 0;">
+        <div class="tx-item">
+          <div class="tx-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </div>
+          <div class="tx-info">
+            <div class="tx-label">Deposit</div>
+            <div class="tx-meta">On-chain</div>
+          </div>
+          <div class="tx-amount tx-in">+100,000</div>
+        </div>
+        <div class="tx-item">
+          <div class="tx-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="tx-info">
+            <div class="tx-label">Funded PayBot</div>
+            <div class="tx-meta">Lightning</div>
+          </div>
+          <div class="tx-amount tx-out">-50,000</div>
+        </div>
+        <div class="tx-item">
+          <div class="tx-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </div>
+          <div class="tx-info">
+            <div class="tx-label">PayBot: Primal Relay</div>
+            <div class="tx-meta">Lightning</div>
+          </div>
+          <div class="tx-amount tx-out">-8,212</div>
+        </div>
+        <div class="tx-item">
+          <div class="tx-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="tx-info">
+            <div class="tx-label">Funded DCA Agent</div>
+            <div class="tx-meta">Lightning</div>
+          </div>
+          <div class="tx-amount tx-out">-50,000</div>
+        </div>
+      </div>
+
+      <div style="height: 20px;"></div>
+    </div>
+
+    <nav class="bottom-nav">
+      <a class="nav-item" href="01-ai-chat.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg>
+        <span class="nav-label">AI</span>
+      </a>
+      <a class="nav-item" href="02-chats-list.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="nav-label">Chats</span>
+        <span class="nav-badge">3</span>
+      </a>
+      <a class="nav-item" href="04-agents.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span class="nav-label">Agents</span>
+      </a>
+      <a class="nav-item active" href="05-wallet.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><circle cx="17" cy="15" r="1"/></svg>
+        <span class="nav-label">Wallet</span>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>

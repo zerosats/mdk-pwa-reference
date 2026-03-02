@@ -1,0 +1,19 @@
+{
+  "name": "mdk-wasm",
+  "type": "module",
+  "description": "WASM bindings for MDK - Marmot Development Kit",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "mdk_wasm_bg.wasm",
+    "mdk_wasm.js",
+    "mdk_wasm_bg.js",
+    "mdk_wasm.d.ts"
+  ],
+  "main": "mdk_wasm.js",
+  "types": "mdk_wasm.d.ts",
+  "sideEffects": [
+    "./mdk_wasm.js",
+    "./snippets/*"
+  ]
+}

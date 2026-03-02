@@ -1,0 +1,3 @@
+[submodule "packages/mdk"]
+	path = packages/mdk
+	url = https://github.com/januszgrze/mdk.git
